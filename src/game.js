@@ -1,3 +1,8 @@
+var canvas = document.getElementById("canvas-id");
+document.body.style.background = "rgba(9, 10, 10, 0.9)";
+canvas.width = window.innerWidth - 5;
+canvas.height = window.innerHeight - 5;
+
 var myX, myY;
 var CubeSize=60;
 var Zoom=1;

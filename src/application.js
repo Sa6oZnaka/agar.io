@@ -1,56 +1,3 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<style>body {margin:0;} 
-        .text-center{
-            text-align:center;
-            margin-left:auto;
-            margin-right:auto;
-        }
-        
-        .btn-group .button {
-            background-color: #4CAF50; /* Green */
-            
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            cursor: pointer;
-            float: left;
-        }
-
-        .btn-group .button:hover {
-            background-color: #3e8e41;
-            text-align: center;
-        }
-            
-            
-            
-            
-            
-            
-        
-        </style>
-	</head>
-	<body onload="init()" bgcolor = "#111">
-        
-        
-        <div class="text-center">
-
-        <center><font size="10" color="#00ceff">Test123!</font></center>
-            
-            
-            
-		<canvas id="canvas-id" width="800" height="600"/>
-            
-            
-        </div>
-        <script src="socket.io/socket.io.js"></script>
-		<script>
-        
 var socket = io();
             
 socket.on("id", function(id, data, list){
@@ -178,9 +125,9 @@ function redraw() {
 		context.stroke();
 	}
 
-	context.fillStyle = "#0000FF"; // "default" color
+	context.fillStyle = "#0000FF"; 
 
-	draw(); // call progammer's draw() function
+	draw(); 
 
 	reqAnimationFrame(redraw);
 }
@@ -257,13 +204,4 @@ function init() {
 			context.font = "30px Arial";
 			context.fillText("You have an error in your draw function or somewhere else!", 40, 40);
 		}
-
-	// start the game
-	//redraw();
-	//callupdate();
 }
-
-		</script>
-		<script src="game.js"></script>
-	</body>
-</html>

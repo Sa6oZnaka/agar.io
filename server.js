@@ -1,13 +1,10 @@
-var app = require('express')();
+var express = require('express');
+var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-app.get('/', function(req, res){
-    res.sendFile(__dirname + "/start.html");
-});
-app.get('/game.js', function(req, res){
-    res.sendFile(__dirname + "/game.js");
-});
+
+app.use(express.static("src"));
 
 var id = 0;
 var list = [];
@@ -29,7 +26,7 @@ io.on("connection", function(socket){
     else{
         cid = id++;
     }
-    console.log("connection from id: " + cid);
+    console.log("connection from id: " + socket.id);
     
     list[cid] = 1;
     data.users[cid] = {};
@@ -53,5 +50,5 @@ io.on("connection", function(socket){
 });
 
 http.listen(3000, function(){
-    console.log("server started");
+    console.log("server started on port 3000");
 });
